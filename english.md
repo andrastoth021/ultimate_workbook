@@ -87,9 +87,73 @@ A few important React Hooks:
 
 > **Context** lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.
 
-
 > Building **Custom Hooks** (your own Hooks) lets you extract component logic into reusable functions.
 
 
-## Spring, Spring Boot, ORM, Spring Security
+## Java & Object Oriented Programming (OOP)
+
+### JVM
+> The Java Virtual Machine is a program whose purpose is to execute other programs. JVMs are available for many hardware and software platforms (i.e. JVM is platform dependent). JVM is the one that actually calls the main method present in a java code. JVM is a part of JRE(Java Runtime Environment)
+
+### JRE & JDK
+
+
+### JUnit
+
+
+### Java Collections
+
+
+### Primitive & Reference types
+
+
+### OOP principles
+
+
+### SOLID principles
+
+
+### YAGNI, SLAP, KISS principles
+
+
+### Design Patterns
+
+
+## Advanced
+TODO: Annotations for every topics that needs it.
+
+### Algorythms (time complexity & others)
+
+
+### MVC
+> MVC (Model-View-Controller) is a pattern in software design commonly used to implement user interfaces, data, and controlling logic.
+It emphasizes a separation between the software's business logic and display. This "separation of concerns" provides for a better division of labor and improved maintenance.
+
+
+### Spring & Spring Boot
+
+
+
+### Entity Relationships
+
+
+### ORM & JPA
+
+
+### JPA & Spring Data JPA
+
+
+### Hibernate ORM & Spring Data JPA
+
+
+### Authentication & Authorization
+
+
+### Spring Security
+
+
+### Security Filter Chain
+
+
+### JWT
 
