@@ -11,6 +11,13 @@ The browser turns each HTML element into something called, a DOM node.
 DOM nodes have properties and methods that allow us to manipulate them using JavaScript.
 
 
+### Eager loading & Lazy loading
+> **Eager loading**: a web page loads all of its content immediately
+Eager loading is the opposite of lazy loading. Eager loading lets the browser store all contents of the web page in its cache, which can be helpful if visitors return to the page. However, this method can be slow to load larger web page files.
+
+> **Lazy loading** means waiting to render content on a webpage until the user or the browser needs it.
+Lazy loading can help speed up webpage load times.
+
 
 ### REpresentational State Transfer (REST)
 > REST is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.
@@ -127,7 +134,6 @@ Key features of Stack Memory:
 These objects have global access and we can access them from anywhere in the application.
 
 
-
 ### Heap
 > The Java heap is the area of memory used to store objects instantiated by applications running on the JVM. When the JVM is started, heap memory is created and any objects in the heap can be shared between threads as long as the application is running.
 The Java heap lives in RAM.
@@ -181,7 +187,8 @@ Cons:
 
 
 ### Maven
-
+> Maven is an open-source build automation and project management tool widely used for Java applications.
+It automates the source code compilation, dependency management, assembly of binary codes into packages, and execution of test scripts. Maven translates and packages your source code so that it becomes an executable application.
 
 
 ### Java Collections (https://www.javatpoint.com/collections-in-java)
@@ -226,10 +233,10 @@ All other types are reference types, so classes, which specify the types of obje
 ### Equals & Hashcode
 The `equals()` and `hashCode()` methods are fundamental methods in Java that are used to determine whether two objects are equal and to generate a hash code for an object, respectively. They are inherited from the Object class and can be overridden in your own classes to provide custom behavior.
 
-If you override the equals() method in your class, you should also override the hashCode() method to ensure that equal objects have the same hash code.
+**If you override the `equals()` method in your class, you should also override the `hashCode()` method to ensure that equal objects have the same hash code.**
 
 hashCode()
-Objects that are equal (according to their equals()) must return the same hash code.
+Objects that are equal (according to their `equals()`) must return the same hash code.
 Different objects do not need to return different hash codes.
 
 
@@ -312,6 +319,9 @@ Goal: This principle aims at reducing the dependency of a high-level Class on th
 
 
 ### Design Patterns
+1. Creational (example: Singleton, Factory method)
+2. Structural (example: Adapter)
+3. Behavioral (example: Iterator (yes for example the Java Interface))
 
 
 ## Advanced
@@ -371,10 +381,14 @@ Using hibernate, if we want to have relationship between two entities, there mus
 The main advantage of having relationship between objects is, we can do operation on one object, and the same operation can transfer onto the other object in the database.
 
 Here are the **4 types of relationships** we can have between objects in Hibernate:
-  - One-To-One
-  - Many-To-One
-  - Many-To-Many
-  - One-To-Many
+  - One-To-One (1:1)
+  Example: In a database each employee has exactly one social security number, and each so.se. number is associated with exactly one employee.
+  - One-To-Many (1:M)
+  Example: In a database of departments and employees, each department can have many employees, but each employee works in one department.
+  - Many-To-One (M:1)
+  Example: Basically inverse of One To Many.
+  - Many-To-Many (M:N)
+  Example: In a database of students and courses, a student can enroll in many courses, and a course can have many students.
 
 
 ### ORM (Object-Relational Mapping)
@@ -423,6 +437,11 @@ Spring Data JPA aims to significantly improve the implementation of data access 
 Hibernate maps Java classes to database tables and from Java data types to SQL data types and relieves the developer from 95% of common data persistence related programming tasks.
 
 Hibernate sits between traditional Java objects and database server to handle all the works in persisting those objects based on the appropriate O/R mechanisms and patterns.
+
+
+### Transaction
+> Transactions in Java, as in general refer to a series of actions that must all complete successfully.
+Hence, if one or more action fails, all other actions must back out leaving the state of the application unchanged. This is necessary to ensure that the integrity of the application state is never compromised.
 
 
 ### Authentication
