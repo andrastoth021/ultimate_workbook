@@ -3,12 +3,30 @@
 
 
 
-## Tartalomjegyzék
+## Tartalomjegyzék (Table of contents)
   1. Internet
     - [Hogyan működik az internet? (How does the internet work?)](https://youtu.be/7_LPdttKXPc?si=NPFGNP27zXxdATW9)
     - Mi az a HTTP? - HyperText Transfer Protocol - (What is HTTP?)
     - HTTP kérések és válaszok (HTTP requests & responses)
     - Böngésző (Browser)
+  2. API
+    - REST
+    - JSON APIs
+  3. Relációs adatbázisok
+    - PostgreSQL
+  4. Caching
+    - Client Side
+  5. Web Security
+    - CORS
+    - API Security Best Practices
+  6. Tesztelés
+    - Integration Testing
+    - Unit Testing
+    - Functional Testing
+  7. Databases
+    - Scaling databases
+    - ORMs
+    - Transactions
 
 
 
