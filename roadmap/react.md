@@ -10,11 +10,11 @@
       - [JSX](####JSX)
       - [Prop vs State](####Prop-vs-State)
       - [Conditional Rendering](####Conditional-Rendering)
-  2. Rendering
-    - Component Life Cycle
-    - Lists and Keys
-    - Refs
-    - Events
+  2. [Rendering](#Rendering)
+    - [Component Life Cycle](###Component-Life-Cycle)
+    - [Lists and Keys](###Lists-and-Keys)
+    - [Refs](###Refs)
+    - [Events](###Events)
   3. Hooks
     - Basic Hooks
       - useState
@@ -80,5 +80,44 @@ A UI (User Interface) egy weboldal - vagy applikáció - elemei, amikkel a felha
 **Ez például akkor lehet hasznos, hogyha bizonyos UI elemeket megjeleníteni/elrejteni szeretnénk, vagy egyszerűem más tartalmat szeretnénk megjeleníteni.**
 *This is particularly useful when you want to show or hide certain UI elements, change the layout of a page, or render different content.*
 *Use `if`, `logical operators` (&&) or `ternary operator` to create elements representing the current state, and let React update the UI to match them.*
+
+## Rendering
+**A React deklaratív megközelítéssel renderel komponenseket, ami azt jelenti, hogy a fejlesztő specifikálja a komponenst, és ennek képernyőre renderelését a React intézi el.**
+**Ez ellentéte az imperatív megközelítésnek, ami azt jelenti, hogy a fejlesztő manuálisan (kóddal) manipulálja a DOM-ot, és ezzel frissíti a UI-t.**
+**A Virtuális DOM (VDOM) egy fontos tényező a React működésében. Ez egy könnyen tárolható memóriában lévő reprezentálása a DOM-nak.**
+**A rendelés lépései a következők:**
+1. **A komponens meg van írva, és JSX szintakszis használatával a render metódus visszatér a komponens leírásával.**
+2. **A komponens renderelve van, a React készít egy VDOM reprezentációt a komponensről.**
+3. **Ezután a React összehasonlítja a VDOM-ot az eggyel előtti verziójával (ha létezik). Ha van köztük különbség, a két VDOM között, akkor a React kiszámolja, hogy mennyi DOM update-re van szükség, hogy a DOM megegyezzem a VDOM-mal.**
+4. **Az aktuális DOM frissítése a lehető legkevesebb DOM update-tel.**
+
+*React follows a declarative approach to rendering components, which means that developers specify what a component should look like, and React takes care of rendering the component to the screen.*
+*This is in contrast to an imperative approach, where developers would write code to manually manipulate the DOM (Document Object Model) to update the UI.*
+*The virtual DOM (VDOM) is an important aspect of how React works. It is a lightweight in-memory representation of the DOM (Document Object Model), and it is used to optimize the rendering of components in a React application.*
+
+*Steps of rendering:*
+1. *Components are written, the render method returns a description of what the component should look like, using JSX syntax.*
+2. *The component is rendered, now React creates a virtual DOM (VDOM) representation of the component. (The VDOM is a lightweight in-memory representation of the DOM, and it is used to optimize the rendering of components.)*
+3. *React compares the VDOM representation of the component with the previous VDOM representation (if it exists). If there are differences between the two VDOMs, React calculates the minimum number of DOM updates needed to bring the actual DOM into line with the new VDOM.*
+4. *React updates the actual DOM with the minimum number of DOM updates needed to reflect the changes in the VDOM.*
+
+### Component Life Cycle
+**A React komponenseknek 3 életciklusuk van: Mounting, Updating, Unmounting.**
+*React components have a lifecycle consisting of three phases: Mounting, Updating, and Unmounting.*
+
+### Lists and Keys
+**Amikor Reactben listákat renderelünk, a `key` propot szoktuk használni, hogy egy egyéni kulcsot adjunk minden elemnek. Amikor kifejezetten egy elemet szeretnénk frissíteni, akkor használjuk az elem beazonosításához.**
+*When you render lists in React, you can use the key prop to specify a unique key for each item. This key is used to identify which item to update when you want to update a specific item.*
+
+### Refs
+> **A Ref-ek a render metódusban létrehozott DOM node-ok vagy React elementek elérését biztosítja.**
+> *Refs provide a way to access DOM nodes or React elements created in the render method.*
+**Reactben a tipikus módszer a szülő-gyerek kommunikációra a propok. Azonban vannak olyan esete ahol imperatív módot szeretnénk módosítani a gyerek komponenst. Erre jók a referenciák.**
+*In the typical React dataflow, props are the only way that parent components interact with their children. To modify a child, you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow.*
+
+### Events
+*Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:*
+  - *React events are named using camelCase, rather than lowercase.*
+  - *With JSX you pass a function as the event handler, rather than a string.*
 
 
