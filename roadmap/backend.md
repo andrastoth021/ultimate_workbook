@@ -4,11 +4,11 @@
 
 
 ## Tartalomjegyzék (Table of contents)
-  1. Internet
-    - [Hogyan működik az internet? (How does the internet work?)](https://youtu.be/7_LPdttKXPc?si=NPFGNP27zXxdATW9)
-    - Mi az a HTTP? - HyperText Transfer Protocol - (What is HTTP?)
-    - HTTP kérések és válaszok (HTTP requests & responses)
-    - Böngésző (Browser)
+  1. [Internet](##Internet) (https://youtu.be/7_LPdttKXPc?si=NPFGNP27zXxdATW9)
+    - [Hogyan működik az internet? (How does the internet work?)](###Hogy-működik-az-internet?-(How-does-the-internet-work?))
+    - [Mi az a HTTP (HyperText Transfer Protocol)?](###Mi-az-a-HTTP-(HyperText-Transfer-Protocol)?)
+    - [HTTP kérések és válaszok (HTTP requests & responses)](###HTTP-kérések-és-válaszok-(HTTP-requests-&-responses))
+    - [Böngésző (Browser)](###Böngésző-(Browser))
   2. API
     - REST
     - JSON APIs
@@ -51,14 +51,17 @@ Quick & easy [explanation](https://youtu.be/7_LPdttKXPc?si=NPFGNP27zXxdATW9).
 *DNS is used to translate domain names into IP addresses*
 *HTTP is used to transfer data between clients and servers.*
 
-### Mi az a HTTP? - HyperText Transfer Protocol - (What is HTTP?)
+### Mi az a HTTP (HyperText Transfer Protocol)?
 > **A `HTTP` egy `TCP/IP`-alapú kommunikációs protokoll, egy absztrakt réteg, ami szabványosítja a kliens és a szerver közötti kommunikációt.**
 A `TCP/IP` továbbítja felé a kliens és szerver között zajló kéréseket és válaszokat. Tehát a `HTTP` függ a `TCP/IP`-től
 Alapértelmezetten a 80-as (TCP) portot használja. A `HTTPS`-nek azonban 443 az alapértelmezett portja.
 
+**A HTTP-t webböngésző és webszerverek közötti kommunikációhoz tervezték, de másra is fel lehet használni. A klasszikus kliens-szerver modelt követi/alkalmazza, amik közötti kommunikációt a kliens megnyitja egy kéréssel, majd vár egy válaszra. A HTTP egy stateless protokoll, ami azt jelenti, hogy a server nem tárol semmilyen adatot (state-et) két request között.**
+
 > *HTTP is a TCP/IP-based application layer communication protocol that standardizes how clients and servers communicate with each other.*
 *HTTP itself depends on TCP/IP to get requests and responses between the client and server.*
 *By default, TCP port 80 is used, but other ports can also be used. HTTPS, however, uses port 443.*
+*Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML. It was designed for communication between web browsers and web servers, but it can also be used for other purposes. HTTP follows a classical client-server model, with a client opening a connection to make a request, then waiting until it receives a response. HTTP is a stateless protocol, meaning that the server does not keep any data (state) between two requests.*
 
 ### HTTP kérések és válaszok (HTTP requests & responses)
 - **Kérés**:
@@ -92,5 +95,78 @@ Alapértelmezetten a 80-as (TCP) portot használja. A `HTTPS`-nek azonban 443 az
 ### Böngésző (Browser)
 > **A böngésző egy szoftver, ami lehetővé teszi a felhasználók számára weboldalak - vagy más online kontentekhez - való hozzáférést grafikus felületen.**
 > *A web browser is a software application that enables a user to access and display web pages or other online content through its graphical user interface.*
+
+## API
+> **Az API (Application Programming Interface) egy szoftver közvetítő, ami lehetővé tesz két applikáció közötti kommunikációt.**
+> *API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.*
+
+*A web API is an API that can be accessed using the HTTP protocol. This is a broad category—really too broad to be very useful. Not all APIs are web APIs; some APIs are used only to communicate between two applications on the same computer, never making use of a web connection.*
+API types: Public APIs, Private/Internal API, 
+API protocols: for example REST API.
+
+## API
+> 
+> *API is a way for two computers to talk to each others.*
+
+Fogalom és nem implementáció
+*Using an API is just like using a website browser. But instead of clicking buttons and filling out forms, you write code to request data from a server.*
+*Example: We could visit NASA's website to look at pictures about astroids OR we could use their REST API to request raw json data.*
+
+### REST
+
+> *REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.*
+
+A RESTful API organizes data entities or resources into a bunch of unique URLs, or rather URIs (Uniform Resource Identifiers).
+`http://api.com/v2/comet` --> `comet` is the resource, the rest of it is called network location.
+
+A client can get data about a resource by making a request to that endpoint over http.
+The request message has a very specific format: HTTP method, URI, headers, and body.
+```
+POST /dinosaur
+
+Accept: application/json
+Authorization: <token>
+Connection: keep-alive
+
+{
+  "name": "dino"
+}
+```
+
+The server will recieve the request message then execute some code, after that the a formatted response message gets sent back.
+Response message contains: status code, headers, body.
+```
+200 OK
+
+Server: nginx
+Age: 2323
+Connection: keep-alive
+
+{
+  "id": "2624626",
+  "status": "success"
+}
+```
+
+It's important about this architecture that its stateless. Which means the two parties don't need to store any information about each other, and every request-response cycle is independent from each other.
+
+Benefits:
+(IBM)
+- Simple & Standardized, industry used
+- Scalable & Stateless
+- High performance, caching
+OR
+(AWS Amazon docs)
+- Scalability: 
+- Flexibility: 
+- Independence: 
+
+REST key standards:
+
+ 
+
+### JSON APIs
+
+
 
 

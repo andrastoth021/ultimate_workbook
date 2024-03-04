@@ -121,3 +121,21 @@ A UI (User Interface) egy weboldal - vagy applikáció - elemei, amikkel a felha
   - *With JSX you pass a function as the event handler, rather than a string.*
 
 
+
+## API Calls
+> Az APIk (Application Programming Interface) 
+> *APIs, short for Application Programming Interfaces, are software-to-software interfaces.*
+
+*Meaning, they allow different applications to talk to each other and exchange information or functionality. This allows businesses to access another business’s data, piece of code, software, or services in order to extend the functionality of their own products — all while saving time and money.*
+
+### REST
+
+
+#### react-query
+
+
+#### Axios
+
+
+
+
