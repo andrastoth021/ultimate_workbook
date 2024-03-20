@@ -26,3 +26,22 @@ The JVM performs the following operations:
 
 #### How does it work? (Compilation Process)
 Java Source Code (mycode.java) --> Java Compiler (javac) --> Bytecode --> **JVM** --> Machine code --> OS (Windows for example)
+
+
+### JRE
+> JRE is an acronym for Java Runtime Environment. The Java Runtime Environment is a set of software tools which are used for developing Java applications. It is used to provide the runtime environment. It is the implementation of JVM.
+
+#### What does JRE consist of?
+  - Set of libraries (like JDBC)
+  - Java Virtual Machine (JVM)
+
+
+### JDK
+> JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software development environment which is used to develop java applications and applets.
+
+#### What does JDK consist of?
+  - Development Tools: interpreter/loader (java), a compiler (javac), etc.
+  - Java Runtime Environment (JRE)
+
+
+
