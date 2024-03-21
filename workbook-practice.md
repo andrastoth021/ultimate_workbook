@@ -44,4 +44,11 @@ Java Source Code (mycode.java) --> Java Compiler (javac) --> Bytecode --> **JVM*
   - Java Runtime Environment (JRE)
 
 
+## Spring Boot
+
+### Inversion of Control
+> Inversion of Control (IoC) is a design principle in software engineering that inverts the flow of control in a program. Traditionally, in procedural programming, the custom code of a program calls reusable libraries to handle generic tasks. However, with IoC, the framework or a generic container takes control of the flow, calling the custom code when needed.
+
+*This principle is widely used in application development frameworks, especially in GUI environments and web server application frameworks, to make the framework extensible by the methods defined by the application programmer.*
+*IoC is often associated with event-driven programming, where the framework or runtime environment handles the event loop and dispatch of events/messages, allowing the custom code to focus solely on event handling. This pattern is also known as the "Hollywood Principle: Don't call us, we'll call you".*
 
