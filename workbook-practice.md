@@ -52,3 +52,9 @@ Java Source Code (mycode.java) --> Java Compiler (javac) --> Bytecode --> **JVM*
 *This principle is widely used in application development frameworks, especially in GUI environments and web server application frameworks, to make the framework extensible by the methods defined by the application programmer.*
 *IoC is often associated with event-driven programming, where the framework or runtime environment handles the event loop and dispatch of events/messages, allowing the custom code to focus solely on event handling. This pattern is also known as the "Hollywood Principle: Don't call us, we'll call you".*
 
+### Dependency Injection
+> Dependency Injection (DI) is a software design pattern that implements the principle of Inversion of Control (IoC) by allowing one object (or static method) to supply the dependencies of another object. This technique is used to decouple objects from their dependencies, making the code more modular, testable, and maintainable.
+
+It involves passing objects (dependencies) to other objects (clients) that require them, rather than having the clients create these dependencies themselves. This can be achieved through various methods, including constructor injection, setter injection, and interface injection.
+
+Example: Playground - Little Girl - Ball
