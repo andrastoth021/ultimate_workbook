@@ -43,6 +43,20 @@ Java Source Code (mycode.java) --> Java Compiler (javac) --> Bytecode --> **JVM*
   - Development Tools: interpreter/loader (java), a compiler (javac), etc.
   - Java Runtime Environment (JRE)
 
+## What is the difference between final, finally, and finalize in Java?
+`final` is a keyword used to make a variable, method, or class immutable. `finally` is a block of code that is executed after try and catch blocks, regardless of whether an exception is thrown. `finalize` is a method that is called by the garbage collector before an object is destroyed.
+
+## What is the difference between checked and unchecked exceptions in Java?
+Checked exceptions are exceptions that are checked at compile time, and the compiler requires that they be caught or declared in the method's `throws` clause. Unchecked exceptions are exceptions that are not checked at compile time, such as `NullPointerException` and `ArrayIndexOutOfBoundsException`.
+
+## What is a ClassLoader in Java?
+A ClassLoader in Java is part of the **JVM** that loads bytecode for classes. It is responsible for finding and loading class files at runtime. You can also write your own ClassLoader to customize the way classes are loaded.
+It operates based on three principles: Delegation, Visibility, and Uniqueness.
+
+## What are the Delegation, Visibility, and Uniqueness principles?
+  - **Delegation Principle**: The ClassLoader forwards the request for class loading to its parent ClassLoader. It only attempts to load a class if the parent ClassLoader cannot find or load it. This ensures that classes are loaded by the most appropriate ClassLoader, maintaining a hierarchical structure of ClassLoaders.
+  - **Visibility Principle**: A child ClassLoader can see all the classes loaded by its parent ClassLoader, but the parent cannot see classes loaded by the child. This principle ensures that classes loaded by different ClassLoaders remain isolated, preventing conflicts and ensuring that each ClassLoader can manage its own set of classes.
+  - **Uniqueness Principle**: This principle ensures that a class is loaded only once, even if multiple requests to load the class are made. It is achieved through the delegation principle, where a child ClassLoader does not attempt to reload a class that has already been loaded by its parent.
 
 ## Spring Boot
 
@@ -57,4 +71,46 @@ Java Source Code (mycode.java) --> Java Compiler (javac) --> Bytecode --> **JVM*
 
 It involves passing objects (dependencies) to other objects (clients) that require them, rather than having the clients create these dependencies themselves. This can be achieved through various methods, including constructor injection, setter injection, and interface injection.
 
-Example: Playground - Little Girl - Ball
+Example: Playground - Little Girl - Football
+
+### How do you handle exceptions in a Spring Boot application?
+Handling exceptions in a Spring Boot application can be effectively managed through several strategies, including the use of `@ControllerAdvice`, custom exceptions, and Aspect-Oriented Programming (AOP). Here's a comprehensive approach to exception handling in Spring Boot:
+
+  1. Use @ControllerAdvice for Global Exception Handling
+  The @ControllerAdvice annotation allows you to handle exceptions globally across all controllers. This is particularly useful for centralizing error handling logic, ensuring consistency in error responses, and reducing code duplication.
+
+  ```
+  @ControllerAdvice
+  public class GlobalExceptionHandler {
+      @ExceptionHandler(Exception.class)
+      public ResponseEntity<Object> handleException(Exception ex) {
+          Map<String, Object> body = new HashMap<>();
+          body.put("message", "An error occurred");
+          return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+      }
+  }
+  ```
+
+  2. Implement Custom Exceptions
+  Defining custom exceptions can provide more specific error messages and handle unique situations that may not be covered by built-in Spring Boot exceptions.
+
+  ```
+  public class InvalidRequestException extends RuntimeException {
+      public InvalidRequestException(String message) {
+          super(message);
+      }
+  }
+  ```
+
+  3. Use @ExceptionHandler for Controller-Specific Exception Handling
+  The @ExceptionHandler annotation allows you to handle exceptions thrown by specific controller methods. This is useful for providing customized error responses for specific exceptions.
+
+  ```
+  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException ex) {
+      Map<String, Object> body = new HashMap<>();
+      body.put("message", ex.getMessage());
+      return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+  }
+  ```
+
