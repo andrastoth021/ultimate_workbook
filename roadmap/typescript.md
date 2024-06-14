@@ -26,17 +26,17 @@
     - [Intersection Types](###Intersection-Types)
     - [Type Aliases](###Type-Aliases)
     - [keyof operator](###keyof-operator)
-  6. Type Guards / Narrowing
-    - instanceof
-    - typeof
-    - Equality
-    - Truthiness
-    - Type Predicates
-  7. TypeScript Interfaces
-    - Types vs Interfaces
-    - Extending Interfaces
-    - Interface declaration
-    - Hybrid Types
+  6. [Type Guards / Narrowing](##Type-Guards)
+    - [instanceof](###instanceof)
+    - [typeof](###typeof)
+    - [Equality](###Equality)
+    - [Truthiness](###Truthiness)
+    - [Type Predicates](###Type-Predicates)
+  7. [TypeScript Interfaces](##TypeScript-Interfaces)
+    - [Types vs Interfaces](###Types-vs-Interfaces)
+    - [Extending Interfaces](###Extending-Interfaces)
+    - [Interface declaration](###Interface-declaration)
+    - [Hybrid Types](###Hybrid-Types)
   8. Classes
   9. Generics
     - Generic Types
@@ -192,3 +192,171 @@ const key: UserKeys = 'name';
 
 In this example, `UserKeys` is a type that represents the union of keys from the `User` interface, which is `"name"` | `"age"` | `"location"`. And a constant named `key` with the type `UserKeys` is declared with the value `"name"`.
 
+
+## Type Guards
+Type guards are a way to narrow down the type of a variable. This is useful when you want to do something different depending on the type of a variable.
+
+### instanceof
+The instanceof operator is a way to narrow down the type of a variable. It is used to check if an object is an instance of a class.
+
+```TypeScript
+class Bird {
+  fly() {
+    console.log('flying...');
+  }
+  layEggs() {
+    console.log('laying eggs...');
+  }
+}
+
+const pet = new Bird();
+
+// instanceof
+if (pet instanceof Bird) {
+  pet.fly();
+} else {
+  console.log('pet is not a bird');
+}
+```
+
+### typeof
+The typeof operator is used to check the type of a variable. It returns a string value representing the type of the variable.
+
+```TypeScript
+let value: string | number = 'hello';
+
+if (typeof value === 'string') {
+  console.log('value is a string');
+} else {
+  console.log('value is a number');
+}
+```
+
+### Equality
+TypeScript also uses switch statements and equality checks like ===, !==, ==, and != to narrow types.
+
+Example:
+```TypeScript
+function example(x: string | number, y: string | boolean) {
+  if (x === y) {
+    // We can now call any 'string' method on 'x' or 'y'.
+    x.toUpperCase();
+    y.toLowerCase();
+  } else {
+    console.log(x);
+    console.log(y);
+  }
+}
+```
+
+### Truthiness
+Truthiness might not be a word you’ll find in the dictionary, but it’s very much something you’ll hear about in JavaScript.
+
+In JavaScript, we can use any expression in conditionals, &&s, ||s, if statements, Boolean negations (!), and more. As an example, if statements don’t expect their condition to always have the type boolean.
+
+```TypeScript
+function getUsersOnlineMessage(numUsersOnline: number) {
+  if (numUsersOnline) {
+    return `There are ${numUsersOnline} online now!`;
+  }
+
+  return "Nobody's here. :(";
+}
+```
+
+### Type Predicates
+Type predicates are functions that return a boolean value. They are used to narrow the type of a variable. Type predicates are used in type guards.
+
+```TypeScript
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+function example(x: unknown) {
+  if (isString(x)) {
+    // We can now call any 'string' method on 'x'.
+    x.toUpperCase();
+  } else {
+    console.log(x);
+  }
+}
+```
+
+## TypeScript Interfaces
+Interfaces in TypeScript provide a way to define a contract for a type, which includes a set of properties, methods, and events. It’s used to enforce a structure for an object, class, or function argument. Interfaces are not transpiled to JavaScript and are only used by TypeScript at compile-time for type-checking purposes.
+
+Example:
+```TypeScript
+interface User {
+  name: string;
+  age: number;
+}
+
+const user: User = {
+  name: 'John Doe',
+  age: 30,
+};
+```
+
+### Types vs Interfaces
+In TypeScript, both types and interfaces can be used to define the structure of objects and enforce type checks. However, there are some differences between the two.
+
+Types are used to create a new named type based on an existing type or to combine existing types into a new type. They can be created using the type keyword.
+Interfaces, on the other hand, are used to describe the structure of objects and classes. They can be created using the interface keyword.
+
+### Extending Interfaces
+In TypeScript, you can extend an interface by creating a new interface that inherits from the original interface using the “extends” keyword. The new interface can include additional properties, methods, or redefine the members of the original interface.
+
+Example:
+```TypeScript
+interface Shape {
+  width: number;
+  height: number;
+}
+
+interface Square extends Shape {
+  sideLength: number;
+}
+
+let square: Square = {
+  width: 10,
+  height: 10,
+  sideLength: 10,
+};
+```
+
+### Interface declaration
+An interface in TypeScript is a blueprint for creating objects with specific structure. An interface defines a set of properties, methods, and events that a class or object must implement. The interface is a contract between objects and classes and can be used to enforce a specific structure for objects in your code.
+
+Example:
+```TypeScript
+interface Person {
+  firstName: string;
+  lastName: string;
+  age?: number;
+
+  getFullName(): string;
+}
+```
+
+### Hybrid Types
+In TypeScript, a hybrid type is a type that combines multiple types into a single type. The resulting type is considered a union of those types. This allows you to specify that a value can have multiple types, rather than just one.
+
+For example, you can create a hybrid type that can accept either a string or a number: `type StringOrNumber = string | number;`
+
+You can also use hybrid types to create more complex types that can represent a combination of several different types of values. 
+For example:
+```TypeScript
+type Education = {
+  degree: string;
+  school: string;
+  year: number;
+};
+
+type User = {
+  name: string;
+  age: number;
+  email: string;
+  education: Education;
+};
+```
